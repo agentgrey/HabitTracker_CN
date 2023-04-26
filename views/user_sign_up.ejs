@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="/css/user_sign_in.css">
+<link rel="stylesheet" href="/css/user_sign_up.css">
 
-<div class="signin">
-    <h1>New User?</h1>
+<div class="signup">
+    <h1>Create a new account</h1>
     <form action="/users/create" method="POST">
         <input type="text" name="name" placeholder="Name" required>
         <input type="email" name="email" placeholder="Email" required>
@@ -9,4 +9,8 @@
         <input type="password" name="confirm_password" placeholder="Confirm Password" required>
         <button>Sign Up</button>
     </form>
+
+    <p>
+        <a href="/users/sign-in">Already have an account?</a>
+    </p>
 </div>

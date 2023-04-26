@@ -1,7 +1,9 @@
 
 module.exports.home = async function(req, res) {
     try {
-        return res.end("<h1> Home Controller </h1>");
+        return res.render('home', {
+            title: "Home"
+        });
     } catch (error) {
         console.log('Error in homeController/home: ', error);
         return res.redirect(back);
