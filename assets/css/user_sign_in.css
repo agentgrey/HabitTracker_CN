@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    background-image: url(../img/main.jpg);
+    background-repeat: no-repeat;
+    background-size: 110vh 105vh;
+}
+
+.signin{
+    margin-left: 60%;
+    margin-right: 50px;
+    margin-top: 5%;
+    height: 480px;
+    /* background-color: thistle; */
+    background-color: rgb(148, 213, 209);
+    border-radius: 10%;
+    text-align: center;
+    padding: 2%;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+}
+input{
+	width: 60%;
+	height: 20px;
+	/* background: #e0dede; */
+	/* justify-content: center; */
+	display: flex;
+	margin: 10px auto;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+button{
+	width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	/* justify-content: center; */
+	/* display: block; */
+	color: #fff;
+	background: rgb(70, 131, 127);
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}

@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="/css/user_sign_in.css">
+
+<div class="signin">
+    <h1>New User?</h1>
+    <form action="/users/create" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        <button>Sign Up</button>
+    </form>
+</div>
