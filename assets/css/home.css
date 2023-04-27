@@ -1,6 +1,81 @@
 body {
     /* background-image: url(../img/peach_bg.jpg); */
-    background-color: rgb(253, 234, 219);
+    /* background-color: rgb(253, 234, 219); */
+    background-color: rgb(233, 252, 255);
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
+}
+
+#noHabitText{
+    color:  rgb(16, 133, 151);
+    text-align: center;
+    font-size: 30px;
+    margin-top: 40px;
+}
+/* Button used to open the form */
+#open-btn {
+  background-color: rgb(16, 133, 151);
+  color: white;
+  font-size: 18px;
+  padding: 12px 10px;
+  border: none;
+  cursor: pointer;
+  top: 50%;
+  left: 37%;
+  opacity: 0.8;
+  position: fixed;
+  width: 250px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  left: 25%;
+  top: 17%;
+  z-index: 9;
+  text-align: center;
+}
+
+/* Add styles to the form container */
+.form-container {
+  width: 600px;
+  height: 250px;
+  padding: 10px;
+  background-color: rgb(238, 235, 192);
+}
+
+/* Full-width input fields */
+.form-container input {
+  width: 90%;
+  padding: 12px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  font-size: 15px;
+}
+
+/* When the inputs get focus, do something */
+.form-container input:focus {
+  background-color: #fff;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container button {
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  font-size: 18px;
+}
+
+.form-container #save-btn {
+  background-color: rgb(130, 189, 107);
+}
+.form-container #cancel-btn {
+  background-color: rgb(241, 121, 109);
 }

@@ -4,11 +4,28 @@
 <%- include('_header'); %>
 
 <div>
-
-    <h1>Body</h1>
+    <!-- if no habits are added -->
+    <% if(locals.user && locals.habits.length==0) { %>
+        <div id="noHabitText">Looks like you aren't tracking any habits yet, so...
+               <br> what do you want to start doing every day? :)</div>
+        <!-- button to open add habit form  -->
+        <button id="open-btn" onclick="openForm()" > + Add Habit</button>
+        <div class="form-popup" id="myForm">
+            <form action="/users/habit/create-habit" id="createHabit" method="POST" class="form-container">
+                <input type="text" name="title" placeholder="Enter habit title" required>
+                <input type="text" name="desc" placeholder="Description">
+                <button type="reset" id="cancel-btn" onclick="closeForm()">Cancel</button>
+                <button type="submit" id="save-btn">Save</button>
+            </form>
+        </div>
+    <% } %>
+    
 
 </div>
 
 
 <!-- footer -->
 <%- include('_footer'); %>
+
+<!-- importing this script to open/close form -->
+<script src="/js/home.js"></script>
