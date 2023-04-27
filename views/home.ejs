@@ -4,8 +4,19 @@
 <%- include('_header'); %>
 
 <div>
+    <!-- if user is not logged in -->
+    <% if(!locals.user) { %>
+        <img class="welcome-img" src="/img/landing.jpg">
+        <div class="welcome-title">
+             Build the best version of yourself <br> by mastering your habits.
+        </div>
+        <form action="/users/sign-up" method="GET">
+            <button class="welcome-button">Get Started</button>
+        </form>
+    <% }
+
     <!-- if no habits are added -->
-    <% if(locals.user && locals.habits.length==0) { %>
+    else if(locals.user && locals.habits.length==0) { %>
         <div id="noHabitText">Looks like you aren't tracking any habits yet, so...
                <br> what do you want to start doing every day? :)</div>
         <!-- button to open add habit form  -->
@@ -18,9 +29,14 @@
                 <button type="submit" id="save-btn">Save</button>
             </form>
         </div>
-    <% } %>
+    <% } 
     
-
+    <!-- show habits -->
+    else { %>
+        <div>
+            <h1>Show habbits</h1>
+        </div>
+    <% } %>
 </div>
 
 

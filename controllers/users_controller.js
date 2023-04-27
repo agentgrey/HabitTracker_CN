@@ -36,18 +36,14 @@ module.exports.create = async function(req, res) {
             console.log('Password mismatch!');
             return res.redirect('back');
         }
-
         let user = await User.findOne({ email: req.body.email });
-
         // if user is not present 
         if (!user) {
             // create the user 
             // console.log(req.body);
             await User.create(req.body);
             // redirect to sign in page
-            // return res.redirect("/users/sign-in");
-            // redirect to home page
-            return res.redirect('/');
+            return res.redirect("/users/sign-in");
         }
         console.log('User is already present');
         return res.redirect('back');
