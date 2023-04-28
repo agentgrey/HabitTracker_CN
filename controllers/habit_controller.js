@@ -1,6 +1,7 @@
 const Habit = require('../models/habit');
 const User = require('../models/user');
 
+// this function creates a new habit
 module.exports.createHabit = async function(req, res) {
     try {
         // console.log("req.body: ", req.body);
@@ -57,7 +58,6 @@ module.exports.toggleStatus = async function(req, res) {
         if(!found) {
             dates.push({date : date, complete : 'y'});
         }
-
     // at last save the dates.
         habit.dates = dates;
         await habit.save();
@@ -68,6 +68,23 @@ module.exports.toggleStatus = async function(req, res) {
         return res.render('404', {
             title: "Not Found"
         });
+    }
+}
+
+// this function removes the habit
+module.exports.deleteHabit = async function(req, res) {
+    try {
+        let id = req.query.id;
+        let user = req.user._id;
+
+        await Habit.deleteOne({ _id : id, user: user });
+        return res.redirect('/');
+        
+    } catch (error) {
+        console.log('Error in habitController/deleteHabit', error);
+        return res.render('404', {
+            title: "Not Found"
+        })
     }
 }
 
