@@ -110,32 +110,49 @@ body {
   left: 15%;
   position: absolute;
 }
+.container {
+  display:flex;
+  justify-content: space-between;
+  margin-left: 200px;
+}
 .habit-container {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content:right;
   background-color: rgba(255, 255, 255, 0.85);
   width: 70%;
   height: 90px;
-  margin: auto;
-  padding: 10px;
+  margin-right: 170px;
+  padding: 5px;
   margin-top: 20px;
 }
 .habit-title {
   font-size: 20px;
-  margin-top: 30px;
-  margin-right: 40px;
+  margin-top: 60px;
+  width: 20%;
 }
-.day-container {
-  margin-right: 30px;
+.day-container {  
+  margin-right: 5px;
 }
 .calender {
   display: flex;
+}
+.calender p {
+  margin-right: 30px;
+}
+.mark-status {
+  margin-left: 18px;
+  font-size: 20px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.281);
 }
 .menu {
   margin-top: 30px;
 }
 .menu i {
   margin-right: 10px;
+}
+.menu i:hover {
+  transform: scale(1.15);
 }
 
 
