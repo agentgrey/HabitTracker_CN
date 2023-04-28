@@ -12,7 +12,7 @@ const session = require("express-session");
 const passport = require('passport');
 const passportLocal = require('./config/passport_local');
 
-
+const MongoStore = require('connect-mongo');
 
 
 
@@ -34,7 +34,16 @@ app.use(session({
     resave: false,
     cookie: {
         maxAge: (1000 * 60 * 100)
-    }
+    },
+    store: MongoStore.create(
+        {
+            mongoUrl:'mongodb://127.0.0.1/habit_tracker',
+            autoRemover : 'disabled'
+        },
+        function(err){
+            console.log("Error in the mongo-store");
+        }
+    ),
 }));
 
 // Using passport

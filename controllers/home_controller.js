@@ -4,7 +4,8 @@ const Habit = require('../models/habit');
 
 module.exports.home = async function(req, res) {
     if(req.user){
-        let habits = await Habit.find({userRef: req.user._id}); 
+        let habits = await Habit.find({user: req.user._id}); 
+        console.log(habits)
         return res.render('home', {
             title : "Habit Tracker",
             habits : habits,
@@ -15,4 +16,10 @@ module.exports.home = async function(req, res) {
             title: "Home"
         });
     }
+}
+
+module.exports.notFound = async function(req, res) {
+    return res.render('404', {
+        title :'Not Found!'
+    });
 }
