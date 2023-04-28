@@ -1,10 +1,14 @@
 body {
-    background-image: url(../img/1.jpg);
-    /* background-color: rgb(253, 234, 219); */
-    /* background-color: rgb(233, 252, 255); */
+    background-image: url(../img/3.jpg);
+    background-color: #fff;
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
+    background-attachment: fixed;
+    font-family: "JetBrains Mono",monospace;
 }
+
+
+/* ---------- styles on welcome page ---------- */
 .welcome-img {
     width: 100%;
     position: fixed;
@@ -29,6 +33,9 @@ body {
   margin-top: 20px;
   cursor: pointer;
 }
+
+
+/* ---------- styles when there are no habits ---------- */
 #noHabitText{
     color:  rgb(16, 133, 151);
     text-align: center;
@@ -36,7 +43,7 @@ body {
     margin-top: 40px;
 }
 /* Button used to open the form */
-#open-btn {
+#open-btn-fixed {
   background-color: rgb(16, 133, 151);
   color: white;
   font-size: 18px;
@@ -49,7 +56,6 @@ body {
   position: fixed;
   width: 250px;
 }
-
 /* The popup form - hidden by default */
 .form-popup {
   display: none;
@@ -59,17 +65,13 @@ body {
   z-index: 9;
   text-align: center;
 }
-
 /* Add styles to the form container */
 .form-container {
   width: 700px;
   height: 300px;
   padding: 10px;
   background-color: rgb(238, 235, 192);
-  /* background-color: rgb(254, 199, 194); */
 }
-
-/* Full-width input fields */
 .form-container input {
   width: 90%;
   padding: 12px;
@@ -78,14 +80,10 @@ body {
   background: #f1f1f1;
   font-size: 15px;
 }
-
-/* When the inputs get focus, do something */
 .form-container input:focus {
   background-color: #fff;
   outline: none;
 }
-
-/* Set a style for the submit/login button */
 .form-container button {
   color: white;
   padding: 12px 20px;
@@ -96,10 +94,90 @@ body {
   opacity: 0.8;
   font-size: 18px;
 }
-
 .form-container #save-btn {
   background-color: rgb(130, 189, 107);
 }
 .form-container #cancel-btn {
   background-color: rgb(241, 121, 109);
+}
+
+
+/* ---------- styles when habits are added ---------- */
+#open-btn {
+  font-size: 18px;
+  margin-top: 30px;
+  cursor: pointer;
+  left: 15%;
+  position: absolute;
+}
+.habit-container {
+  display: flex;
+  /* justify-content: space-between; */
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 70%;
+  height: 90px;
+  margin: auto;
+  padding: 10px;
+  margin-top: 20px;
+}
+.habit-title {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-right: 40px;
+}
+.day-container {
+  margin-right: 30px;
+}
+.calender {
+  display: flex;
+}
+.menu {
+  margin-top: 30px;
+}
+.menu i {
+  margin-right: 10px;
+}
+
+
+/* CSS for button styling*/
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+.button-30:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+.button-30:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
 }

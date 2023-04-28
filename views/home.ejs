@@ -21,7 +21,7 @@
         <div id="noHabitText">Looks like you aren't tracking any habits yet, so...
                <br> what do you want to start doing every day? :)</div>
         <!-- button to open add habit form  -->
-        <button id="open-btn" onclick="openForm()" > + Add Habit</button>
+        <button id="open-btn-fixed" onclick="openForm()" > + Add Habit</button>
         <div class="form-popup" id="myForm">
             <form action="/users/habit/create-habit" id="createHabit" method="POST" class="form-container">
                 <input type="text" name="title" placeholder="Enter habit title" required>
@@ -35,7 +35,33 @@
     <!-- show habits -->
     else { %>
         <div>
-            <h1>Show habbits</h1>
+            <div>
+                <% for(let habit of habits) {%>
+                    <div class="habit-container">
+                        <div class="habit-title"> <%= habit.title %> </div>
+                        <div class="day-container">
+                            <div class="calender">
+                                <div class="month">Apr &nbsp;</div>
+                                <div class="date">26</div> 
+                            </div>
+                        </div>
+                        <div class="menu">  
+                            <i class="fa-solid fa-pencil fa-lg" style="color: rgb(241, 121, 109);"></i>
+                            <i class="fa-regular fa-trash-can fa-lg" style="color: rgb(241, 121, 109);"></i>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+            <!-- button to open add habit form  -->
+            <button id="open-btn" class="button-30" onclick="openForm()" > + Add Habit</button>
+            <div class="form-popup" id="myForm">
+                <form action="/users/habit/create-habit" id="createHabit" method="POST" class="form-container">
+                    <input type="text" name="title" placeholder="Enter habit title" required>
+                    <input type="text" name="desc" placeholder="Description">
+                    <button type="reset" id="cancel-btn" onclick="closeForm()">Cancel</button>
+                    <button type="submit" id="save-btn">Save</button>
+                </form>
+            </div>
         </div>
     <% } %>
 </div>
