@@ -4,7 +4,7 @@
 <%- include('_header'); %>
 
 <div>
-    <!-- if user is not logged in -->
+    <!----------- if user is not logged in ----------->
     <% if(!locals.user) { %>
         <img class="welcome-img" src="/img/landing.jpg">
         <div class="welcome-title">
@@ -15,7 +15,7 @@
         </form>
     <% }
 
-    <!-- if no habits are added -->
+    <!----------- if no habits are added ----------->
     else if(locals.user && locals.habits.length==0) { %>
     <%= habits %>
         <div id="noHabitText">Looks like you aren't tracking any habits yet, so...
@@ -32,67 +32,20 @@
         </div>
     <% } 
     
-    <!-- show habits -->
+    <!------------ show habits ------------>
     else { %>
         <div>
             <div>
-                <% for(let habit of habits) {%>
-                <div class="container">
-                <!-- title -->
-                    <div class="habit-title"> <h2><%= habit.title %></h2> </div>
-                    <div class="habit-container">
-                        <% for(let date of weeklyDates) { %>
-                            <div class="day-container">
-                            <!-- date -->
-                                <div class="calender">
-                                    <p><%= date %></p>
-                                </div>
-                                <% 
-                                    let found;
-                                    let status;
-                                    habit.dates.find((item) => {
-                                        if(item.date === date)
-                                        {
-                                            found = true;
-                                            status = item.complete;
-                                        }
-                                    });
-                                %>
-                            <!-- complete status -->
-                                <div >
-                                    <a href="/users/habit/toggle-status/?id=<%= habit._id%>&date=<%=date%>" class="mark-status">
-                                        <% if(found && status=='y') { %>
-                                            <i class="fas fa-check-circle" style="color: rgb(130, 189, 107)"></i>
-                                        <% } else if(found && status=='n') { %>
-                                            <i class="fas fa-times-circle" style="color: rgb(241, 121, 109)"></i>
-                                        <% } else { %>
-                                            <i class="fa-solid fa-circle"></i>
-                                        <% } %>
-                                    </a>
-                                </div>
-                            </div>
-                        <% } %>
-                        <!-- options to edit and delete -->
-                        <div class="menu">  
-                            <a onclick="openEditForm()" style="text-decoration: none;">
-                                <i class="fa-solid fa-pencil fa-lg" style="color: rgb(241, 121, 109);"></i>
-                            </a>
-                            <div class="form-popup" id="myEditForm">
-                                <form action="users/habit/edit-habit/?id=<%= habit._id%>&user=<%=locals.user%>" id="editHabit" method="POST" class="form-container">
-                                    <input type="text" name="title" placeholder="<%= habit.title %>" required>
-                                    <input type="text" name="desc" placeholder="<%= habit.desc %>">
-                                    <button type="reset" id="cancel-btn" onclick="closeEditForm()">Cancel</button>
-                                    <button type="submit" id="save-btn">Save</button>
-                                </form>
-                            </div>
-                            <a href="/users/habit/delete-habit/?id=<%=habit._id%>" style="text-decoration: none;">
-                                <i class="fa-regular fa-trash-can fa-lg" style="color: rgb(241, 121, 109);"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <% } %>
+                
+                <!-- weekly view -->
+                <%- include('weekly_view'); %>
+                
+                <!-- daily view  -->
+                <%- include('daily_view'); %>
+
             </div>
+
+
             <!-- button to open add habit form  -->
             <button id="open-btn" class="button-30" onclick="openForm()" > + Add Habit</button>
             <div class="form-popup" id="myForm">
@@ -103,6 +56,8 @@
                     <button type="submit" id="save-btn">Save</button>
                 </form>
             </div>
+            <!-- button to toggle between daily/weekly view -->
+            <button id="change-view" class="button-30" onclick="changeView()" > Show Daily</button>
         </div>
     <% } %>
 </div>

@@ -1,0 +1,65 @@
+<% for(let habit of habits) {%>   
+    <div class="container daily-view" style="display: none;">
+        <!-- habit title -->
+        <div class="habit-title"> <h2><%= habit.title %></h2> </div>
+
+        <!-- habit details in daily view-->
+        <div class="habit-container">
+            <!-- complete status -->
+
+            <div class="mark-status-daily">
+                <% 
+                    let dateToday = new Date();
+                    let months = ["","Jan", "Feb", "March", "Apr", "May", "June", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+                    let date = months[dateToday.getMonth()+1] +" " +dateToday.getDate();
+                    let found;
+                    let status;
+                    habit.dates.find((item) => {
+                        if(item.date === date)
+                        {
+                            found = true;
+                            status = item.complete;
+                        }
+                    });
+                %>
+                <a href="/users/habit/toggle-status/?id=<%=habit._id%>&date=<%=date%>" class="mark-status-daily">
+                    <% if(found && status=='y') { %>
+                        <i class="fas fa-check-circle" style="color: rgb(130, 189, 107)"></i>
+                    <% } else if(found && status=='n') { %>
+                        <i class="fas fa-times-circle" style="color: rgb(241, 121, 109)"></i>
+                    <% } else { %>
+                        <i class="fa-solid fa-circle"></i>
+                    <% } %>
+                </a>
+            </div>
+
+            <!-- habit desciption -->
+            <div class="habit-desc">
+                <% if(!habit.desc) { %>
+                    <p>- No description -</p>
+                <% } else { %>
+                    <p><%= habit.desc %></p> 
+                <% } %>
+            </div>
+
+            <!-- options : edit, delete -->
+            <div class="menu">  
+                <a class="clickIt" id="<%= habit._id%>" style="text-decoration: none;">
+                    <i class="fa-solid fa-pencil fa-lg" style="color: rgb(241, 121, 109);"></i>
+                </a>
+                <!-- edit form -->
+                <div class="form-popup" id="myEditForm_<%= habit._id %>">
+                    <form action="users/habit/edit-habit/?id=<%= habit._id%>&user=<%=locals.user%>" id="editHabit" method="POST" class="form-container">
+                        <input type="text" name="title" value="<%= habit.title %>" required>
+                        <input type="text" name="desc" value="<%= habit.desc %>">
+                        <button class="closeIt" type="reset" id="cancel-btn">Cancel</button>
+                        <button type="submit" id="save-btn">Save</button>
+                    </form>
+                </div>
+                <a href="/users/habit/delete-habit/?id=<%=habit._id%>" style="text-decoration: none;">
+                    <i class="fa-regular fa-trash-can fa-lg" style="color: rgb(241, 121, 109);"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+<% } %>

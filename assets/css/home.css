@@ -114,20 +114,24 @@ body {
 
 /* ---------- styles when habits are added ---------- */
 #open-btn {
-  font-size: 18px;
   margin-top: 30px;
-  cursor: pointer;
   left: 15%;
+  position: absolute;
+}
+#change-view {
+  margin-top: 30px;
+  left: 75%;
   position: absolute;
 }
 .container {
   display:flex;
+  flex-direction: row;
   justify-content: space-between;
   margin-left: 200px;
 }
 .habit-container {
   display: flex;
-  justify-content:right;
+  justify-content:space-evenly;
   background-color: rgba(255, 255, 255, 0.85);
   width: 70%;
   height: 90px;
@@ -136,7 +140,7 @@ body {
   margin-top: 20px;
 }
 .habit-title {
-  margin-top: 40px;
+  margin-top: 35px;
   width: 20%;
 }
 .day-container {  
@@ -164,7 +168,20 @@ body {
 .menu i:hover {
   transform: scale(1.15);
 }
-
+/* -- daily view -- */
+.daily-view .habit-container {
+  justify-content: space-between;
+}
+.habit-desc {
+  margin-left: 20px;
+  font-size: 18px;
+}
+.mark-status-daily {
+  color: rgba(0, 0, 0, 0.281);
+  font-size: 28px;
+  margin-left: 18px;
+  margin-top: 27px;
+}
 
 /* CSS for button styling*/
 .button-30 {
