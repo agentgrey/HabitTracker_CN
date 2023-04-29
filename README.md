@@ -37,7 +37,7 @@ Once you have the application up and running, you can start using it by followin
 * To see today's habits, click on "Show Daily" button.
 * To edit a habit, click on the "Edit" icon next to it.
 
-### Folder Structure
+## Folder Structure
 ```
 Habit Tracker
     |
@@ -79,9 +79,19 @@ Habit Tracker
     |--> package-lock.json
     |-->package.json
     
-    ````
-    
-    
+ ````
+
+## Screenshots
+### Home Page
+![image](https://user-images.githubusercontent.com/90390855/235321468-d96ca598-cd5b-45f4-acbe-2f5594eb4ffc.png)
+### Sign-up Page
+![image](https://user-images.githubusercontent.com/90390855/235321481-07590d82-d2ae-435a-aff9-ecc9a84a188a.png)
+### Sign-in Page
+![image](https://user-images.githubusercontent.com/90390855/235321490-3973cbbd-4d22-433b-8dda-72c3d19d5236.png)
+### Weekly View Page
+![image](https://user-images.githubusercontent.com/90390855/235321501-b4b7aa59-249e-43a7-87f6-a212d92d831a.png)
+
+
 ## Contributing
 Contributions are always welcome! If you have any suggestions for improving this application, please feel free to create a pull request or open an issue.
 
