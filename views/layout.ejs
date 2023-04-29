@@ -4,6 +4,10 @@
 
 <head>
     <title><%= title%></title>
+    <!-- noty.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <!-- awesome fonts -->
     <script src="https://kit.fontawesome.com/f383b6eabf.js" crossorigin="anonymous"></script>
 </head>
 
@@ -15,6 +19,27 @@
         <%- body %>
 
     <!-- <%- include('_footer'); %> -->
+
+    <script>
+        <% if(flash.success && flash.success.length>0) {%>
+            new Noty({
+                theme : 'sunset',
+                text: '<%=flash.success%>',
+                layout: 'bottomRight',
+                timeout:1500
+            }).show()
+        <% } %>
+        <% if(flash.error && flash.error.length>0) {%>
+            new Noty({
+                theme : 'sunset',
+                text: '<%=flash.error%>',
+                type: 'error',
+                layout: 'bottomRight',
+                timeout:1500
+            }).show()
+        <% } %>
+    </script>
+
 </body>
 
 </html>

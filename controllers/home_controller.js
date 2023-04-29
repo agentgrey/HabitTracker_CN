@@ -6,6 +6,7 @@ module.exports.home = async function(req, res) {
     if(req.user){
         let habits = await Habit.find({user: req.user._id}); 
         // console.log(habits)
+        
         return res.render('home', {
             title : "Habit Tracker",
             habits : habits,

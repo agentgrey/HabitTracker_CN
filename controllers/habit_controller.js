@@ -18,6 +18,8 @@ module.exports.createHabit = async function(req, res) {
                 user: req.user._id,
                 dates : {date : await getTodayDate() , completed : "none"}
             });
+
+            req.flash('success', 'Habit Created Successfully');
             return res.redirect('/');
         }
     } catch (error) {
@@ -38,10 +40,10 @@ module.exports.toggleStatus = async function(req, res) {
             return res.redirect('/');
         }
 
-    // take out the date array of the habit.
+        // take out the date array of the habit.
         let dates = habit.dates;
         let found = false;
-    // changes the complete argument accodingly.
+        // changes the complete argument accodingly.
         dates.find((item, index) =>{
             if(item.date == date){
                 if(item.complete === 'y'){
@@ -58,7 +60,7 @@ module.exports.toggleStatus = async function(req, res) {
         if(!found) {
             dates.push({date : date, complete : 'y'});
         }
-    // at last save the dates.
+        // at last save the dates.
         habit.dates = dates;
         await habit.save();
         return res.redirect('/');
@@ -78,6 +80,7 @@ module.exports.deleteHabit = async function(req, res) {
         let user = req.user._id;
 
         await Habit.deleteOne({ _id : id, user: user });
+        req.flash('success', 'Habit Deleted Successfully');
         return res.redirect('/');
         
     } catch (error) {
@@ -106,6 +109,7 @@ module.exports.editHabit = async function(req, res) {
             }
         );
         // console.log(updatedResult);
+        req.flash('success', 'Habit Updated Successfully');
         return res.redirect('/');
         
     } catch (error) {

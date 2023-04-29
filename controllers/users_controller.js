@@ -34,6 +34,7 @@ module.exports.create = async function(req, res) {
         if(req.body.password != req.body.confirm_password) {
             // console.log(req.body);
             console.log('Password mismatch!');
+            req.flash('error', 'Password mismatch');
             return res.redirect('back');
         }
         let user = await User.findOne({ email: req.body.email });
@@ -56,6 +57,7 @@ module.exports.create = async function(req, res) {
 
 // signs in existing user
 module.exports.createSession = async function(req, res) {
+    req.flash('success', 'You are logged in!');
     return res.redirect('/');
 }
 
@@ -65,7 +67,8 @@ module.exports.destroySession = async function(req, res, done) {
         if (err) {
             return done(err);
         }
-    })
+    });
+    req.flash('success' , 'You are logged out!');
     return res.redirect('/users/sign-in');
 }
 
@@ -92,6 +95,7 @@ module.exports.resetPassword = async function(req, res) {
         if(req.body.password==req.body.confirm_password) {
             user.password = req.body.password;
             await user.updateOne({password : req.body.password});
+            req.flash('success', 'Password changed successfully');
             return res.redirect('/users/sign-in');
         }
     } catch (error) {

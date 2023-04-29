@@ -7,6 +7,10 @@ const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
 const db = require('./config/mongoose');
 
+// require connect-flash
+const flash = require('connect-flash');
+const flashMiddleware = require('./config/flashMiddleware');
+
 // used for session cookies
 const session = require("express-session");
 const passport = require('passport');
@@ -50,6 +54,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
+
+// flash middleware
+app.use(flash());
+app.use(flashMiddleware.setFlash);
 
 // use express router
 app.use('/', require('./routes'));
