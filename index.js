@@ -41,7 +41,7 @@ app.use(session({
     },
     store: MongoStore.create(
         {
-            mongoUrl:'mongodb://127.0.0.1/habit_tracker',
+            mongoUrl:'mongodb+srv://himadrinayak:12345@cluster0.h7n86ah.mongodb.net/habit-tracker?retryWrites=true&w=majority',
             autoRemover : 'disabled'
         },
         function(err){
