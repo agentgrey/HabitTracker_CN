@@ -2,6 +2,8 @@
 const User = require('../models/user');
 const Habit = require('../models/habit');
 
+
+// this function takes user to home
 module.exports.home = async function(req, res) {
     if(req.user){
         let habits = await Habit.find({user: req.user._id}); 
@@ -35,6 +37,7 @@ function getOneWeekDate(){
     }
     return dates;
 }
+
 
 module.exports.notFound = async function(req, res) {
     return res.render('404', {

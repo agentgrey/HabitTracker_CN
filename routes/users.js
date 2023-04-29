@@ -20,7 +20,9 @@ router.get('/sign-out', usersController.destroySession);
 
 router.use('/habit', require('./habit'));
 
+// takes to forget password page
 router.get('/forget-password', usersController.forgetPassword);
+// changes the password
 router.post('/reset-password', usersController.resetPassword);
 
 module.exports = router;
