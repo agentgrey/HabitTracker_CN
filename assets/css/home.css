@@ -32,6 +32,11 @@ body {
   margin-left: 40%;
   margin-top: 20px;
   cursor: pointer;
+  box-shadow: 0 0.5em 0.5em -0.4em  rgb(16, 133, 151);
+}
+.welcome-button:hover,
+.welcome-button:focus {
+  transform: translateY(-0.25em);
 }
 
 
@@ -55,6 +60,11 @@ body {
   opacity: 0.8;
   position: fixed;
   width: 250px;
+  box-shadow: 0 0.5em 0.5em -0.4em rgb(16, 133, 151);
+}
+#open-btn-fixed:hover,
+#open-btn-fixed:focus {
+  transform: translateY(-0.25em);
 }
 /* The popup form - hidden by default */
 .form-popup {
@@ -70,7 +80,7 @@ body {
   width: 700px;
   height: 300px;
   padding: 10px;
-  background-color: rgb(238, 235, 192);
+  background-color: rgba(16, 133, 151, 0.7);
 }
 .form-container input {
   width: 90%;
@@ -91,7 +101,7 @@ body {
   cursor: pointer;
   width: 50%;
   margin-bottom:10px;
-  opacity: 0.8;
+  opacity: 0.9;
   font-size: 18px;
 }
 .form-container #save-btn {
@@ -126,8 +136,7 @@ body {
   margin-top: 20px;
 }
 .habit-title {
-  font-size: 20px;
-  margin-top: 60px;
+  margin-top: 40px;
   width: 20%;
 }
 .day-container {  
@@ -150,6 +159,7 @@ body {
 }
 .menu i {
   margin-right: 10px;
+  cursor: pointer;
 }
 .menu i:hover {
   transform: scale(1.15);

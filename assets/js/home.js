@@ -4,8 +4,14 @@ function openForm() {
   document.getElementById("myForm").style.display = "block";
   document.getElementById("open-btn").style.display="none";
 }
-
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
   document.getElementById("open-btn").style.display="block";
+}
+
+function openEditForm() {
+  document.getElementById("myEditForm").style.display = "block";
+}
+function closeEditForm() {
+  document.getElementById("myEditForm").style.display = "none";
 }

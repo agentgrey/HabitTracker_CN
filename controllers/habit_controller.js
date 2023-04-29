@@ -88,6 +88,35 @@ module.exports.deleteHabit = async function(req, res) {
     }
 }
 
+// this function will edit the habit title/desc
+module.exports.editHabit = async function(req, res) {
+    try {
+        let newTitle = req.body.title;
+        let newDesc = req.body.desc;
+        let id = req.query.id;
+        let user = req.user._id;
+
+        let updatedResult = await Habit.findByIdAndUpdate(
+            {
+                _id: id,
+                user: user
+            }, {
+                title: newTitle,
+                desc: newDesc
+            }
+        );
+        // console.log(updatedResult);
+        return res.redirect('/');
+        
+    } catch (error) {
+        console.log('Error in habitController/editHabit', error);
+        return res.render('404', {
+            title: "Not Found"
+        })
+    }
+}
+
+
 // this fucntion will return the current data, which will helpful for getting the range of dates
 function getTodayDate(){
     var today = new Date();

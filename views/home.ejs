@@ -38,10 +38,12 @@
             <div>
                 <% for(let habit of habits) {%>
                 <div class="container">
-                    <div class="habit-title"> <%= habit.title %> </div>
+                <!-- title -->
+                    <div class="habit-title"> <h2><%= habit.title %></h2> </div>
                     <div class="habit-container">
                         <% for(let date of weeklyDates) { %>
                             <div class="day-container">
+                            <!-- date -->
                                 <div class="calender">
                                     <p><%= date %></p>
                                 </div>
@@ -56,6 +58,7 @@
                                         }
                                     });
                                 %>
+                            <!-- complete status -->
                                 <div >
                                     <a href="/users/habit/toggle-status/?id=<%= habit._id%>&date=<%=date%>" class="mark-status">
                                         <% if(found && status=='y') { %>
@@ -69,10 +72,19 @@
                                 </div>
                             </div>
                         <% } %>
+                        <!-- options to edit and delete -->
                         <div class="menu">  
-                            <a href="#" style="text-decoration: none;">
+                            <a onclick="openEditForm()" style="text-decoration: none;">
                                 <i class="fa-solid fa-pencil fa-lg" style="color: rgb(241, 121, 109);"></i>
                             </a>
+                            <div class="form-popup" id="myEditForm">
+                                <form action="users/habit/edit-habit/?id=<%= habit._id%>&user=<%=locals.user%>" id="editHabit" method="POST" class="form-container">
+                                    <input type="text" name="title" placeholder="<%= habit.title %>" required>
+                                    <input type="text" name="desc" placeholder="<%= habit.desc %>">
+                                    <button type="reset" id="cancel-btn" onclick="closeEditForm()">Cancel</button>
+                                    <button type="submit" id="save-btn">Save</button>
+                                </form>
+                            </div>
                             <a href="/users/habit/delete-habit/?id=<%=habit._id%>" style="text-decoration: none;">
                                 <i class="fa-regular fa-trash-can fa-lg" style="color: rgb(241, 121, 109);"></i>
                             </a>
