@@ -32,7 +32,6 @@ app.use(express.static('./assets'));
 //mongo store is used to store the session cookie
 app.use(session({
     name: 'habitTracker',
-    // TODO change the secret before deployment in production mode
     secret: "12345",
     saveUninitialized: false,
     resave: false,
