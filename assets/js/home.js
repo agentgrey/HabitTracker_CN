@@ -1,5 +1,4 @@
 console.log('In home.js');
-let view = weekly;
 
 // function to open the form to add new habit
 function openForm() {
@@ -18,7 +17,7 @@ document.addEventListener('click', (event) => {
   if (target.classList.contains('fa-pencil')) {
     const parent = target.parentNode;
     const id = `myEditForm_${parent.id}`;
-    document.getElementById(id).style.display = 'block';
+    document.getElementById(id).style.display = 'flex';
   }
 
   if (target.classList.contains('closeIt')) {
