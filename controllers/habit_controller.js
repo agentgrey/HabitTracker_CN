@@ -34,6 +34,7 @@ module.exports.toggleStatus = async function(req, res) {
         let id = req.query.id;
         let date = req.query.date;
         const habit = await Habit.findById(id);
+        console.log(date);
 
         if(!habit) {
             console.log('Habit not present!');

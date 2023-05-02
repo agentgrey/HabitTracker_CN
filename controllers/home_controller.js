@@ -32,7 +32,6 @@ function getOneWeekDate(){
         mm = months[mm];
         let dd = currentDate.getDate();
         if (dd < 10) dd = '0' + dd;
-        // const yyyy = currentDate.getFullYear();
         dates.push(mm +" " +dd);
     }
     return dates;
